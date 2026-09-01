@@ -1,0 +1,10 @@
+rockyou_4char_top1000.txt
+Dockerfile
+.env
+.git
+__pycache__
+*.pyc
+.pytest_cache
+venv/
+Dockerfile.dev
+tests/
