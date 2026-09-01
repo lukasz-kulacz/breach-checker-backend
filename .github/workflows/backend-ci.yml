@@ -1,0 +1,17 @@
+name: backend-ci
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Zbuduj obraz deweloperski
+        run: docker build -f backend/Dockerfile.dev -t backend-test:${{ github.sha }} .
+
+      - name: Uruchom testy
+        run: docker run --rm backend-test:${{ github.sha }} pytest
