@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Zbuduj obraz deweloperski
-        run: docker build -f backend/Dockerfile.dev -t backend-test:${{ github.sha }} .
+        run: docker build -f Dockerfile.dev -t backend-test:${{ github.sha }} .
 
       - name: Uruchom testy
         run: docker run --rm backend-test:${{ github.sha }} pytest
